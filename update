@@ -11,6 +11,7 @@ mv autoScript.sh ..
 mv update ..
 mv README.md ..
 mv EULA.txt ..
+mv uninstall.sh ..
 cd ..
 chmod +x update
 chmod +x autoScript.sh
