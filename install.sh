@@ -1,6 +1,8 @@
 #!/bin/bash
 
-PERM_DIR=$(pwd)
+touch autoScript.conf
+echo "PERM_DIR=$(pwd)
+mv autoScript.conf /etc/environment.d/
 
 chmod +x autoScript.sh
 chmod +x update
@@ -44,10 +46,5 @@ apt-get install libcurl4-openssl-dev -y
 apt install hashcat -y
 apt-get install aircrack-ng -y
 apt-get install bc -y
-
-cd $PERM_DIR
-touch autoScript.conf
-echo "PERM_DIR=$(pwd)
-mv autoScript.conf /etc/environment.d/
 
 rm install.sh
