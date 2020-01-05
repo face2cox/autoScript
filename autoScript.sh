@@ -235,7 +235,7 @@ license-edit() {
 license-check() {
     clear
     cd ~/Programs/autoScript/
-    ANSWER=$(cat License.txt | grep ":" | cut -d":" -f2)
+    ANSWER=$(cat EULA.txt | grep ":" | cut -d":" -f2)
     if [ "$ANSWER" == " no" ]
     then
     echo "You must agree to the EULA first"
