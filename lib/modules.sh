@@ -87,12 +87,73 @@ capture-packets() {
     wireshark-check
 }
 geolocate() {
-    coming-soon
-}
-scan-ports() {
-    coming-soon
+    geoip() {
+        clear
+        figlet Gerolocate IP
+        echo "------------------- Geolocate and IP Adress -------------------"
+        echo ""
+        echo -e "\e[1;31mWARNING:\e[0m If using a URL use "nslookup" to get IP"
+        echo ""
+        read -p "Enter Target IP: " IP
+        if [ -z $IP ]
+        then
+        echo ""
+        echo "Cannot leave blank"
+        sleep 2
+        geoip
+        else 
+        echo ""
+        curl https://api.hackertarget.com/geoip/?q="$IP"
+        echo ""
+        echo ""
+        read -n 1 -r -s -p "Press any key to continue..."
+        fi
+    }
+    geoip
+    main-menu
 }
 nmap-scan() {
+    nmap-error-check() {
+        OPENPORT=$(cat temp.txt | grep "open")
+        if [ -z $OPENPORT ]
+        then
+        echo "No Open Ports Found!"
+        fi
+    }
+    nmap-function() {
+        clear
+        figlet nMap Scan
+        echo "---------------- nMap Scan a Network ----------------"
+        echo ""
+        echo -e "\e[1;31mWARNING:\e[0m Remove "http" if using a URL"
+        echo ""
+        read -p "Enter Target IP: " IP
+        if [ -z $IP ]
+        then
+        echo ""
+        echo "Cannot leave blank"
+        sleep 2
+        nmap-function
+        else
+        nmap "$IP" > temp.txt
+        echo ""
+        OPENPORT=$(cat temp.txt | grep "open")
+        if [ -z $OPENPORT ]
+        then
+        echo "No Open Ports Found!"
+        else
+        cat temp.txt | grep "PORT"
+        cat temp.txt | grep "open"
+        fi
+        echo ""
+        rm temp.txt
+        read -n 1 -r -s -p "Press any key to continue..."
+        fi
+    }
+    nmap-function
+    main-menu
+}
+local-scan() {
     coming-soon
 }
 ddos-ip() {

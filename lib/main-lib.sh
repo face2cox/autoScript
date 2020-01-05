@@ -54,8 +54,8 @@ main-choice-2() {
     echo ""
     echo "1) Capture Packets"
     echo "2) Geolocate IP Adress"
-    echo "3) Scan Network Ports"
-    echo "4) nMap Scan Local Network"
+    echo "3) nmap Scan a Network"
+    echo "4) Scan a Local Network"
     echo "5) Back"
     echo ""
     read -n 1 -p "Select Option: " PATH2
@@ -76,11 +76,11 @@ main-choice-2() {
 
     elif [ $PATH2 == 3 ]
     then
-    scan-ports
+    nmap-scan
 
     elif [ $PATH2 == 4 ]
     then
-    nmap-scan
+    local-scan
 
     elif [ $PATH2 == 5 ]
     then
