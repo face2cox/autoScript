@@ -5,10 +5,10 @@ chmod +x update
 chmod +x depnd
 ./depnd
 
-mkdir ~/Programs
 cd ..
-mv autoScript ~/Programs
-cd ~/Programs
+PWD=$(pwd)
+mkdir Programs
+cd Programs
 
 git clone https://github.com/ZerBea/hcxdumptool.git
 cd hcxdumptool
@@ -20,7 +20,7 @@ git clone https://github.com/ZerBea/hcxtools.git
 cd hcxtools
 make
 make install
-cd ~/Programs/autoScript
+cd $PWD/autoScript
 
 chmod +x autoScript
 sudo mv autoScript /bin/
