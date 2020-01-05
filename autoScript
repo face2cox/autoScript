@@ -13,7 +13,7 @@ cd $PERM_DIR
 elif [ $INPUT == uninstall ]
 then
 cd $PERM_DIR
-./uninstall
+./uninstall.sh
 elif [ $INPUT == help ]
 then
 cd "$PERM_DIR"
