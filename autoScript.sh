@@ -134,6 +134,7 @@ moniter-mode() {
 
     elif [ $INTERFACE == 0 ]
     then
+    cd "$START_DIR"
     clear
     exit
 
@@ -145,14 +146,15 @@ moniter-mode() {
     moniter-mode
     fi
 
+    clear
+    echo "Processing..."
     interface-error-check
-
     ifconfig $INTERFACE down
     iwconfig $INTERFACE mode moniter
     ifconfig $INTERFACE up
 }
 
-main-menue() {
+main-menu() {
 heading
 echo -e "\e[0;36m---------------\e[0m \e[1;33mMade by Treebug842\e[0m \e[0;36m---------------\e[0m"
 echo ""
@@ -188,6 +190,7 @@ main-choice-4
 
 elif [ $MAIN == 5 ]
 then
+cd "$START_DIR"
 clear
 exit
 
@@ -200,5 +203,60 @@ exec bash "$0" "$@"
 fi
 }
 
+license-edit() {
+    clear
+    cat License.txt | cut -d"-" -f1
+    read -p "-Do you agree with the above conditions (yes/no): " USER_INPUT
+    if [ -z $USER_INPUT ]
+    then
+    echo ""
+    echo "You cannot leave blank"
+    sleep 2
+    license-edit
+    elif [ "$USER_INPUT" == "no" ]
+    then
+    echo ""
+    echo "Ok then"
+    sleep 2
+    clear
+    exit
+    elif [ "$USER_INPUT" == "yes" ]
+    then
+    sed -i '$ d' License.txt
+    echo "-Do you agree with the above conditions (yes/no): yes" >> License.txt
+    else
+    echo ""
+    echo "Option not supported"
+    sleep 2
+    license-edit
+    fi
+}
+
+license-check() {
+    clear
+    cd ~/Programs/autoScript/
+    ANSWER=$(cat License.txt | grep ":" | cut -d":" -f2)
+    if [ "$ANSWER" == " no" ]
+    then
+    echo "You must agree to the User License Agreement first"
+    sleep 2
+    license-edit
+    elif [ "$ANSWER" == " yes" ]
+    then
+    echo ""
+    #License check passed
+    else
+    echo ""
+    echo "Invalid answer written in autoScript License"
+    echo "Answer must not contain capital letters"
+    echo ""
+    read -n 1 -r -s 
+    exit
+    fi
+    cd "$START_DIR"
+}
+
+START_DIR=$(pwd)
+license-check
 moniter-mode
-main-menue
+main-menu
