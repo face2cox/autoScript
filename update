@@ -9,7 +9,7 @@ mv lib ..
 mv autoScript.sh ..
 mv update ..
 mv README.md ..
-mc License.txt ..
+mc EULA.txt ..
 cd ..
 chmod +x update
 chmod +x autoScript.sh
