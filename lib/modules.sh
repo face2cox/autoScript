@@ -57,7 +57,7 @@ crack-pmkid() {
     show-pmkids
     choose-list-2
     clear
-    cd ~/Programs/autoScript
+    cd $PERM_DIR
     hashcat -m 16800 PMKID/$CHOSEN_PMKID -a 0 --kernel-accel=1 -w 3 --force Password-List/$SELECTED_LIST
     read -n 1 -r -s
     main-menu
