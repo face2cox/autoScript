@@ -9,6 +9,10 @@ elif [ $INPUT == update ]
 then
 cd $PERM_DIR
 ./update
+elif [ $INPUT == uninstall ]
+then
+cd $PERM_DIR
+./uninstall
 else
 echo "Not an Option"
 fi
