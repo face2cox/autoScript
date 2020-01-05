@@ -3,11 +3,11 @@
 INPUT=${1:-run}
 if [ $INPUT == run ]
 then
-cd ~/Programs/autoScript
+cd $PERM_DIR
 ./autoScript.sh
 elif [ $INPUT == update ]
 then
-cd ~/Programs/autoScript
+cd $PERM_DIR
 ./update
 else
 echo "Not an Option"
