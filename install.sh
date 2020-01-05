@@ -7,6 +7,7 @@ PERM_DIR=$(pwd)
 
 chmod +x autoScript.sh
 chmod +x update
+chmod +x uninstall.sh
 chmod +x depnd
 ./depnd
 
