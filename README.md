@@ -18,9 +18,9 @@ If you have any questions or suggestions about autoScript please feel free to co
 ## Use
 The autoScript commands are:
 
+    autoScript
     autoScript run
     autoScript update
     autoScript uninstall
     autoScript --help
 
-Or just run autoSCript to start the program.
