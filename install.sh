@@ -1,8 +1,6 @@
 #!/bin/bash
 
-touch autoScript.conf
-echo "PERM_DIR=$(pwd)" >> autoScript.conf
-mv autoScript.conf /etc/environment.d/
+export PERM_DIR=$(pwd)
 
 chmod +x autoScript.sh
 chmod +x update
