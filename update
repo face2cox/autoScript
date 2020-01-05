@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CURRENT_DIR=$(pwd)
 clear
 git clone https://github.com/Treebug842/autoScript.git
 rm -r lib
@@ -16,4 +17,4 @@ chmod +x autoScript.sh
 chmod +x depnd
 rm -r autoScript
 ./depnd
-cd
+cd "$CURRENT_DIR"
