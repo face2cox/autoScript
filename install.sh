@@ -47,4 +47,4 @@ apt install hashcat -y
 apt-get install aircrack-ng -y
 apt-get install bc -y
 
-rm install.sh
+rm install
