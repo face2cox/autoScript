@@ -11,4 +11,4 @@ other propietary or intellectual property rights of any person.
 I will not use autoScript to scan, DDOS, or in any way interfere
 with any computer system without the owners written permission.
 
--Do you agree with the above conditions (yes/no): yes
+-Do you agree with the above conditions (yes/no): no
