@@ -1,12 +1,12 @@
 #!/bin/bash
 
+PERM_DIR=$(pwd)
+
 chmod +x autoScript.sh
 chmod +x update
 chmod +x depnd
 ./depnd
 
-cd ..
-PWD=$(pwd)
 mkdir Programs
 cd Programs
 
@@ -20,7 +20,7 @@ git clone https://github.com/ZerBea/hcxtools.git
 cd hcxtools
 make
 make install
-cd $PWD/autoScript
+cd $PERM_DIR
 
 chmod +x autoScript
 sudo mv autoScript /bin/
@@ -44,5 +44,10 @@ apt-get install libcurl4-openssl-dev -y
 apt install hashcat -y
 apt-get install aircrack-ng -y
 apt-get install bc -y
+
+cd $PERM_DIR
+touch autoScript.conf
+echo "PERM_DIR=$(pwd)
+mv autoScript.conf /etc/environment.d/
 
 rm install.sh
