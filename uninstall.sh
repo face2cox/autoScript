@@ -6,7 +6,7 @@ cd ..
 rm -R autoScript
 cd ~
 rm /bin/autoScript
-sed -i '$ d' foo.txt
-sed -i '$ d' foo.txt
-echo "fi" >> .bashrc
+sed -i '$ d' ~/.bashrc
+sed -i '$ d' ~/.bashrc
+echo "fi" >> ~/.bashrc
 cd "$CURRENT_DIR"
