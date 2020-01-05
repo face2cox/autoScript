@@ -247,7 +247,7 @@ license-check() {
     #License check passed
     else
     echo ""
-    echo "Invalid answer written in autoScript License"
+    echo "Invalid answer written in autoScript EULA"
     echo "Answer must not contain capital letters"
     echo ""
     read -n 1 -r -s 
