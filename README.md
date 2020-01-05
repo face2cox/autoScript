@@ -14,3 +14,13 @@ Installation is simple just run:
 
 ## Contact
 If you have any questions or suggestions about autoScript please feel free to contact me at tree.autoScript@gmail.com
+
+## Use
+The autoScript commands are:
+
+    autoScript run
+    autoScript update
+    autoScript uninstall
+    autoScript --help
+
+Or just run autoSCript to start the program.
