@@ -234,7 +234,7 @@ license-edit() {
 
 license-check() {
     clear
-    cd ~/Programs/autoScript/
+    cd $PERM_DIR
     ANSWER=$(cat EULA.txt | grep ":" | cut -d":" -f2)
     if [ "$ANSWER" == " no" ]
     then
