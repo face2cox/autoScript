@@ -1,7 +1,7 @@
 #!/bin/bash
 
 touch autoScript.conf
-echo "PERM_DIR=$(pwd)
+echo "PERM_DIR=$(pwd)"
 mv autoScript.conf /etc/environment.d/
 
 chmod +x autoScript.sh
