@@ -205,7 +205,7 @@ fi
 
 license-edit() {
     clear
-    cat License.txt | cut -d"-" -f1
+    cat EULA.txt | cut -d"-" -f1
     read -p "-Do you agree with the above conditions (yes/no): " USER_INPUT
     if [ -z $USER_INPUT ]
     then
@@ -222,8 +222,8 @@ license-edit() {
     exit
     elif [ "$USER_INPUT" == "yes" ]
     then
-    sed -i '$ d' License.txt
-    echo "-Do you agree with the above conditions (yes/no): yes" >> License.txt
+    sed -i '$ d' EULA.txt
+    echo "-Do you agree with the above conditions (yes/no): yes" >> EULA.txt
     else
     echo ""
     echo "Option not supported"
@@ -238,7 +238,7 @@ license-check() {
     ANSWER=$(cat License.txt | grep ":" | cut -d":" -f2)
     if [ "$ANSWER" == " no" ]
     then
-    echo "You must agree to the User License Agreement first"
+    echo "You must agree to the EULA first"
     sleep 2
     license-edit
     elif [ "$ANSWER" == " yes" ]
