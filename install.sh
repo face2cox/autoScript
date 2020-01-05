@@ -1,6 +1,8 @@
 #!/bin/bash
 
-export PERM_DIR=$(pwd)
+sed -i '$ d' ~/.bashrc
+echo "export PERM_DIR=$(pwd)" >> ~/.bashrc
+echo "fi" >> ~/.bashrc
 
 chmod +x autoScript.sh
 chmod +x update
