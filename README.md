@@ -1,17 +1,16 @@
-             _       ____            _       _
-  __ _ _   _| |_ ___/ ___|  ___ _ __(_)_ __ | |_
- / _` | | | | __/ _ \___ \ / __| '__| | '_ \| __|
-| (_| | |_| | || (_) |__) | (__| |  | | |_) | |_
- \__,_|\__,_|\__\___/____/ \___|_|  |_| .__/ \__|
-                                      |_|                                                                                           
+                 _       ____            _       _
+      __ _ _   _| |_ ___/ ___|  ___ _ __(_)_ __ | |_
+     / _` | | | | __/ _ \___ \ / __| '__| | '_ \| __|
+    | (_| | |_| | || (_) |__) | (__| |  | | |_) | |_
+     \__,_|\__,_|\__\___/____/ \___|_|  |_| .__/ \__|
+                                          |_|
 
-autoScript is a linux (designed speciffically for Kali Linux) program that takes common 
-WiFi attacks and automates it into one easy to use program.
-To install please run...
+**autoScript** is a Linux program, specifically designed for Kali Linux, that takes common WiFi attacks and automates them into one easy to use program.
 
-chmod +x install && ./install
+## Install
+Installation is simple just run:
 
-...to install all the required dependancys.
-if you have any questions or suggestions about autoScript please feel free to contact
-me at tree.autoScript@gmail.com
+    chmod +x install && ./install
 
+## Contact
+If you have any questions or suggestions about autoScript please feel free to contact me at tree.autoScript@gmail.com
