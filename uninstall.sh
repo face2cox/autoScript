@@ -9,4 +9,4 @@ rm /bin/autoScript
 sed -i '$ d' ~/.bashrc
 sed -i '$ d' ~/.bashrc
 echo "fi" >> ~/.bashrc
-cd "$CURRENT_DIR"
+cd 
