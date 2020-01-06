@@ -10,7 +10,7 @@
 ## Install
 Installation is simple just run:
 
-    chmod +x install && ./install
+    bash ./install
 
 ## Contact
 If you have any questions or suggestions about autoScript please feel free to contact me at tree.autoScript@gmail.com
