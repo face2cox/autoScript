@@ -8,7 +8,7 @@
 **autoScript** is a Linux program, specifically designed for Kali Linux, that takes common WiFi attacks and automates them into one easy to use program.
 
 ## Install
-Installation is simple just run:
+Installation is simple just download or clone the repository and in the folder run:
 
     bash ./install
 
