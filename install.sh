@@ -51,3 +51,6 @@ apt-get install aircrack-ng -y
 apt-get install bc -y
 
 rm install.sh
+
+clear
+echo "Please reload this window before running autoScript"
