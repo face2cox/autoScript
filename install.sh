@@ -53,4 +53,5 @@ apt-get install bc -y
 rm install.sh
 
 clear
-echo "Please reload this window before running autoScript"
+read -n 1 -r -s -p "Press any key to reload this window"
+source ~/.bashrc
