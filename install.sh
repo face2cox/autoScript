@@ -9,6 +9,7 @@ chmod +x autoScript.sh
 chmod +x update
 chmod +x uninstall.sh
 chmod +x depnd
+chmod +x uninstall.sh
 ./depnd
 
 mkdir Programs
