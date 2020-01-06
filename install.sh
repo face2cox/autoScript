@@ -50,8 +50,6 @@ apt install hashcat -y
 apt-get install aircrack-ng -y
 apt-get install bc -y
 
-rm install.sh
-
-clear
-read -n 1 -r -s -p "Press any key to reload this window"
 source ~/.bashrc
+rm install.sh
+clear
