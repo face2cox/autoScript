@@ -1,6 +1,6 @@
 source "lib/modules.sh"
 source "lib/in-apt.sh"
-
+source "~/.bashrc"
 main-choice-1() {
     heading
     echo -e "\e[0;36m-----------------\e[0m \e[1;33mWiFi Cracking\e[0m \e[0;36m-----------------\e[0m"
