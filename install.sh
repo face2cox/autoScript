@@ -50,7 +50,6 @@ apt install hashcat -y
 apt-get install aircrack-ng -y
 apt-get install bc -y
 
-source ~/.bashrc
 rm install.sh
 clear
 reset
