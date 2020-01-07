@@ -10,6 +10,7 @@
 ## Install
 Installation is simple just download or clone the repository and in the folder run:
 
+    cd autoScript
     bash ./install
 
 ## Contact
