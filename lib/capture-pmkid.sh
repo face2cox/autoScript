@@ -1,4 +1,4 @@
-source "~/.bashrc"
+
 interface-check-1() {
     if [ -z $INTERFACE ]
     then
