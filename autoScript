@@ -1,5 +1,6 @@
 
 #!/bin/bash
+source "~/.bashrc"
 CURRENT_DIR=$(pwd)
 INPUT=${1:-run}
 if [ $INPUT == run ]
@@ -19,6 +20,10 @@ then
 cd "$PERM_DIR"
 cat README.md
 cd "$CURRENT_DIR"
+elif [ $INPUT == --help ]
+then
+cd $PERM_DIR
+./autoScript.sh
 else
 echo "Not an Option"
 fi
