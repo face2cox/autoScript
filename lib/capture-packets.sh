@@ -1,4 +1,4 @@
-source "~/.bashrc"
+
 show-scan-results-3() {
     clear
     figlet Capture Packets
