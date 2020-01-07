@@ -1,5 +1,4 @@
 #!/bin/bash
-source "~/.bashrc"
 CURRENT_DIR=$(pwd)
 cd "$PERM_DIR"
 cd ..
