@@ -17,6 +17,7 @@ cd ..
 chmod +x update
 chmod +x autoScript.sh
 chmod +x depnd
+chmod +x uninstall.sh
 rm -r autoScript
 ./depnd
 cd "$CURRENT_DIR"
