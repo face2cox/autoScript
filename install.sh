@@ -53,3 +53,4 @@ apt-get install bc -y
 source ~/.bashrc
 rm install.sh
 clear
+reset
