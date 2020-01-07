@@ -1,6 +1,5 @@
 
 #!/bin/bash
-source "~/.bashrc"
 CURRENT_DIR=$(pwd)
 INPUT=${1:-run}
 if [ $INPUT == run ]
