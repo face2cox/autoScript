@@ -22,5 +22,5 @@ The autoScript commands are:
     autoScript run
     autoScript update
     autoScript uninstall
-    autoScript --help
+    autoScript help
 
