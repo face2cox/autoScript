@@ -9,6 +9,7 @@ chmod +x autoScript.sh
 chmod +x update
 chmod +x uninstall.sh
 chmod +x depnd
+chmod +x uninstall.sh
 ./depnd
 
 mkdir Programs
@@ -50,3 +51,5 @@ apt-get install aircrack-ng -y
 apt-get install bc -y
 
 rm install.sh
+clear
+bash --login

@@ -19,6 +19,10 @@ then
 cd "$PERM_DIR"
 cat README.md
 cd "$CURRENT_DIR"
+elif [ $INPUT == --help ]
+then
+cd $PERM_DIR
+./autoScript.sh
 else
 echo "Not an Option"
 fi
