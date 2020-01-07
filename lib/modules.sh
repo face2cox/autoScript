@@ -3,7 +3,7 @@ source "lib/capture-handshake.sh"
 source "lib/crack-pmkid.sh"
 source "lib/crack-handshake.sh"
 source "lib/capture-packets.sh"
-source "~/.bashrc"
+
 
 capture-pmkid() {
     network-scan-1
