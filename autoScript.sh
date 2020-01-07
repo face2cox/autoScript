@@ -152,6 +152,7 @@ moniter-mode() {
     ifconfig $INTERFACE down
     iwconfig $INTERFACE mode moniter
     ifconfig $INTERFACE up
+    sudo macchanger -r $INTERFACE
 }
 
 main-menu() {
@@ -216,7 +217,7 @@ license-edit() {
     elif [ "$USER_INPUT" == "no" ]
     then
     echo ""
-    echo "Ok then"
+    echo "You must agree to the EULA before you are able to use autoScript"
     sleep 2
     clear
     exit

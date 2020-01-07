@@ -112,7 +112,7 @@ geolocate() {
     geoip
     main-menu
 }
-nmap-scan() {
+port-scan() {
     nmap-error-check() {
         OPENPORT=$(cat temp.txt | grep "open")
         if [ -z $OPENPORT ]
@@ -120,10 +120,10 @@ nmap-scan() {
         echo "No Open Ports Found!"
         fi
     }
-    nmap-function() {
+    scan-function() {
         clear
-        figlet nMap Scan
-        echo "---------------- nMap Scan a Network ----------------"
+        figlet Port Scan
+        echo "------- Scan for Open Ports on a Network -------"
         echo ""
         echo -e "\e[1;31mWARNING:\e[0m Remove "http" if using a URL"
         echo ""
@@ -133,7 +133,7 @@ nmap-scan() {
         echo ""
         echo "Cannot leave blank"
         sleep 2
-        nmap-function
+        scan-function
         else
         nmap "$IP" > temp.txt
         echo ""
@@ -150,11 +150,43 @@ nmap-scan() {
         read -n 1 -r -s -p "Press any key to continue..."
         fi
     }
-    nmap-function
+    scan-function
     main-menu
 }
 local-scan() {
-    coming-soon
+    loading-screen-1() {
+    clear
+    figlet Local Scan
+    echo "-------- Scan for all devices on a local network --------"
+    echo ""
+    echo -e "\e[1;31mWARNING:\e[0m The network you are connected to will be scanned"
+    echo ""
+    echo "Scanning..."
+    }
+    local-scan-results() {
+        clear
+    figlet Local Scan
+    echo "-------- Scan for all devices on a local network --------"
+    echo ""
+    echo -e "\e[1;31mWARNING:\e[0m The network you are connected to will be scanned"
+    echo ""
+    cat temp2.txt
+    rm temp2.txt
+    echo ""
+    read -n 1 -r -s -p "Press any key to continue..."
+    }
+
+    loading-screen-1
+    nmap -p 1-100 192.168.0.1/24 > temp.txt
+    cat temp.txt | grep -v "Not shown" > temp2.txt
+    cat temp2.txt | grep -v "Starting" > temp.txt
+    sed -i '$ d' temp.txt
+    cat temp.txt | grep -v "Host is up" > temp2.txt
+    sed -i 's/All 100 scanned ports on.*are/All ports/g' temp2.txt
+    sed -i 's/Nmap scan report/Scan report/g' temp2.txt
+    rm temp.txt
+    local-scan-results
+    main-menu
 }
 ddos-ip() {
     coming-soon

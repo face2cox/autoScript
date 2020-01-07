@@ -76,7 +76,7 @@ main-choice-2() {
 
     elif [ $PATH2 == 3 ]
     then
-    nmap-scan
+    port-scan
 
     elif [ $PATH2 == 4 ]
     then
