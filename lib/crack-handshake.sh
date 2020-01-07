@@ -1,4 +1,4 @@
-source "~/.bashrc"
+
 choose-file-1() {
     clear
     figlet Crack Handshake
