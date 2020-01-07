@@ -1,5 +1,4 @@
 #!/bin/bash
-source "~/.bashrc"
 CURRENT_DIR=$(pwd)
 clear
 git clone https://github.com/Treebug842/autoScript.git
