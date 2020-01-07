@@ -1,4 +1,4 @@
-source "~/.bashrc"
+
 show-scan-results-2() {
     clear
     figlet Capture Handshake
