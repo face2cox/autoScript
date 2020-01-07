@@ -157,7 +157,7 @@ local-scan() {
     loading-screen-1() {
     clear
     figlet Local Scan
-    echo "-------- Scan for all devices on a local network --------"
+    echo "-------- Scan all devices on a local network --------"
     echo ""
     echo -e "\e[1;31mWARNING:\e[0m The network you are connected to will be scanned"
     echo ""
