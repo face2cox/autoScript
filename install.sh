@@ -52,4 +52,4 @@ apt-get install bc -y
 
 rm install.sh
 clear
-reset
+bash --login
