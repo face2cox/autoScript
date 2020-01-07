@@ -1,4 +1,4 @@
-source "~/.bashrc"
+
 show-pmkids() {
     clear
     figlet Crack PMKID
