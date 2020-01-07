@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 source "lib/main-lib.sh"
-source "~/.bashrc"
 
 interface-check() {
     if [ -z $INTERFACE ]
