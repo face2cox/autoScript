@@ -100,7 +100,7 @@ main-choice-3() {
     echo -e "\e[0;36m--------------------\e[0m \e[1;33mGriefing\e[0m \e[0;36m--------------------\e[0m"
     echo ""
     echo "1) DDOS IP Adress"
-    echo "2) DDOS Website"
+    echo "2) Slowloris attack"
     echo "3) Deauth Local Network"
     echo "4) Deauth Local Device"
     echo "5) Back"
@@ -119,7 +119,7 @@ main-choice-3() {
 
     elif [ $PATH3 == 2 ]
     then
-    ddos-website
+    slowloris-attack
 
     elif [ $PATH3 == 3 ]
     then

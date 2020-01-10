@@ -1,9 +1,10 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get autoremove -y
-sudo apt-get autoclean -y
-sudo dpkg --configure -a
-sudo apt-get update --fix-missing
-sudo apt-get install -f
-sudo apt-get update
+apt-get update
+apt-get autoremove -y
+apt-get autoclean -y
+dpkg --configure -a
+apt-get update --fix-missing
+apt-get install -f
+apt-get update
+apt-get install slowhttptest -y

