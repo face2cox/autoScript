@@ -241,7 +241,7 @@ network-scan-5() {
     mapfile -t BSS5 <bssid.txt
 
     rm names.txt
-    rm temp1-01.csv
+    #rm temp1-01.csv
     rm bssid.txt
     rm CHANNEL5.txt
     rm temp.txt
@@ -250,7 +250,7 @@ network-scan-5() {
 
 device-scan() {
     clear
-    airodump-ng -c $CHANNEL5 -w temp1 --output-format csv --bssid $BSSID5 $INTERFACE
+    #airodump-ng -c $CHANNEL5 -w temp1 --output-format csv --bssid $BSSID5 $INTERFACE
     cat temp1-01.csv | grep -v "WPA2" > temp.txt
     cat temp.txt | grep "$BSSID5" > temp2.txt
     cat temp2.txt | cut -d"," -f1 > temp.txt
@@ -269,8 +269,7 @@ choose-device() {
     echo ""
     if [ -z ${DEVICE[0]} ]
     then
-    echo ""
-    echo "No Networks Detected!"
+    echo "No Devices Detected!"
     sleep 2
     main-choice-3
     else 
