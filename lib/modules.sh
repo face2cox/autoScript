@@ -5,6 +5,8 @@ source "lib/crack-handshake.sh"
 source "lib/capture-packets.sh"
 source "lib/deauth-network.sh"
 source "lib/deauth-device.sh"
+source "lib/router-sploit.sh"
+source "lib/airgeddon.sh"
 
 capture-pmkid() {
     network-scan-1
@@ -262,8 +264,16 @@ deauth-device() {
     main-menu
 }
 router-sploit() {
-    coming-soon
+    routersploit-check
+    cd "$PERM_DIR"/Programs/routersploit
+    clear
+    python3 rsf.py
+    cd "$PERM_DIR"
+    main-menu
 }
 airgeddon-void() {
-    coming-soon
+    airgeddon-check
+    cd "$PERM_DIR"/Programs/airgeddon
+    ./airgeddon.sh
+    main-menu
 }
