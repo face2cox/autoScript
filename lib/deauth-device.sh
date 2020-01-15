@@ -1,7 +1,7 @@
 show-scan-results-5() {
     clear
     figlet Deauth Device
-    echo ------------------------- Choose a Target Network --------------------------
+    echo -e "\e[0;36m-------------------\e[0m \e[1;33mChoose a Target Network\e[0m \e[0;36m--------------------\e[0m"
     echo ""
     if [ -z ${NAME5[0]} ]
     then
@@ -265,7 +265,7 @@ device-scan() {
 choose-device() {
     clear
     figlet Deauth Device
-    echo ------------------------- Choose a Target Device --------------------------
+    echo -e "\e[0;36m-------------------\e[0m \e[1;33mChoose a Target Device\e[0m \e[0;36m--------------------\e[0m"
     echo ""
     if [ -z ${DEVICE[0]} ]
     then

@@ -22,7 +22,7 @@ interface-error-check-1() {
 show-scan-results-1() {
     clear
     figlet Capture PMKID
-    echo --------------------- Choose a Target Network ---------------------
+    echo -e "\e[0;36m---------------------\e[0m \e[1;33mChoose a Target Network\e[0m \e[0;36m---------------------\e[0m"
     echo ""
 
     if [ ! -z ${NAME[0]} ]

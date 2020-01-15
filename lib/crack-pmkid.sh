@@ -2,10 +2,12 @@
 show-pmkids() {
     clear
     figlet Crack PMKID
-    echo "--------------- Choose File to Crack ---------------"
+    echo -e "\e[0;36m----------------\e[0m \e[1;33m Choose File to Crack \e[0m \e[0;36m----------------\e[0m"
+    echo ""
+    echo -e "\e[1;31mWARNING:\e[0m This dosn't work on some computers"
     echo ""
     cd PMKID/
-    ls *.16800 -1 > temp.txt
+    ls *.16800 -1 > temp.txt 2>/dev/null
     mapfile -t PMKID <temp.txt
     rm temp.txt
     cd ..
@@ -189,7 +191,7 @@ show-pmkids() {
 choose-list-2() {
     clear
     figlet Crack PMKID
-    echo "-------------------- Choose Password List to Use --------------------"
+    echo -e "\e[0;36m--------------\e[0m \e[1;33mChoose password List to use\e[0m \e[0;36m--------------\e[0m"
     echo ""
     cd Password-List
     ls *.txt -1 > temp.txt

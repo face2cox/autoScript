@@ -1,8 +1,8 @@
 
 show-scan-results-2() {
     clear
-    figlet Capture Handshake
-    echo ------------------------- Choose a Target Network --------------------------
+    figlet Cap Handshake
+    echo -e "\e[0;36m----------------------\e[0m \e[1;33mChoose a Target Network\e[0m \e[0;36m----------------------\e[0m"
     echo ""
     if [ -z ${NAME2[0]} ]
     then
@@ -11,6 +11,8 @@ show-scan-results-2() {
     sleep 2
     main-choice-1
     else 
+    echo -e "\e[1;36mNOTE:\e[0m A device has to join the network to collect the handshake"
+    echo ""
     echo "1)${NAME2[0]}"
     fi
     if [ ! -z ${NAME2[1]} ]

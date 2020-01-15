@@ -17,7 +17,7 @@ interface-error-check() {
     if [ -z $INTERFACE ]
     then
     echo ""
-    echo "Error Network Adapter Not Found"
+    echo "Error Network Adapter Not Valid"
     sleep 2
     moniter-mode
     fi
@@ -149,10 +149,6 @@ moniter-mode() {
     clear
     echo "Processing..."
     interface-error-check
-    ifconfig $INTERFACE down
-    iwconfig $INTERFACE mode moniter
-    ifconfig $INTERFACE up
-    sudo macchanger -r $INTERFACE
 }
 
 main-menu() {
@@ -161,8 +157,8 @@ echo -e "\e[0;36m---------------\e[0m \e[1;33mMade by Treebug842\e[0m \e[0;36m--
 echo ""
 echo "1) WiFi Cracking"
 echo "2) Network Recon"
-echo "3) Griefing"
-echo "4) Other Programs"
+echo "3) DOS Attacks"
+echo "4) Other Options"
 echo "5) Exit"
 echo ""
 read -n 1 -p "Select Option: " MAIN
@@ -171,7 +167,7 @@ then
 echo ""
 echo "Cannot leave blank"
 sleep 2
-exec bash "$0" "$@"
+main-menu
 
 elif [ $MAIN == 1 ]
 then
@@ -200,7 +196,7 @@ echo ""
 echo ""
 echo "Not an Option"
 sleep 2
-exec bash "$0" "$@"
+main-menu
 fi
 }
 

@@ -2,7 +2,7 @@
 show-scan-results-3() {
     clear
     figlet Capture Packets
-    echo "------------------------- Choose a Target Network --------------------------"
+    echo -e "\e[0;36m------------------------\e[0m \e[1;33mChoose a Target Network\e[0m \e[0;36m------------------------\e[0m"
     echo ""
     if [ -z ${NAME3[0]} ]
     then
@@ -252,9 +252,9 @@ network-scan-3() {
 wireshark-check() {
     clear
     figlet Capture Packets
-    echo "----------------------------- File Saved ------------------------------"
+    echo -e "\e[0;36m-------------------------\e[0m \e[1;33mFile has been Saved\e[0m \e[0;36m--------------------------\e[0m"
     echo ""
-    echo -e "\e[1;31mWARNING:\e[0m You need a GUI to open in Wireshark"
+    echo -e "\e[1;36mNOTE:\e[0m You need a GUI to open in Wireshark"
     echo ""
     echo "1) View file in Wireshark"
     echo "2) Exit"

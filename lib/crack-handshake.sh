@@ -2,10 +2,10 @@
 choose-file-1() {
     clear
     figlet Crack Handshake
-    echo "---------------------------- Choose File to Crack ----------------------------"
+    echo -e "\e[0;36m----------------------------\e[0m \e[1;33mChoose File to Crack\e[0;36m----------------------------\e[0m"
     echo ""
     cd Handshake/
-    ls *.cap -1 > temp.txt
+    ls *.cap -1 > temp.txt 2>/dev/null
     mapfile -t CRACK2 <temp.txt
     rm temp.txt
     cd ..
@@ -182,7 +182,7 @@ choose-file-1() {
 choose-list-1() {
     clear
     figlet Crack Handshake
-    echo "-------------------------- Choose Password List to Use --------------------------"
+    echo -e "\e[0;36m------------------------\e[0m \e[1;33mChoose Password List to Use\e[0m \e[0;36m------------------------\e[0m"
     echo ""
     cd Password-List
     ls *.txt -1 > temp.txt
