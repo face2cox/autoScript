@@ -7,6 +7,7 @@ source "lib/deauth-network.sh"
 source "lib/deauth-device.sh"
 source "lib/router-sploit.sh"
 source "lib/airgeddon.sh"
+source "lib/edit-files.sh"
 
 capture-pmkid() {
     clear
@@ -316,4 +317,9 @@ airgeddon-void() {
     cd "$PERM_DIR"/Programs/airgeddon
     ./airgeddon.sh
     main-menu
+}
+edit-files() {
+    edit-menu
+
+
 }

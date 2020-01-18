@@ -33,7 +33,6 @@ install-routersploit() {
     fi
 }
 
-
 routersploit-check() {
     cd "$PERM_DIR"/Programs
     ls -1 > temp.txt

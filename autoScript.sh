@@ -253,7 +253,30 @@ license-check() {
     cd "$START_DIR"
 }
 
+verification() {
+    EULA_CHECKSUM=$(sha256sum EULA.txt | cut -d" " -f1)
+    LICENSE_CHECKSUM=$(sha256sum LICENSE.txt | cut -d" " -f1)
+    if [ "$EULA_CHECKSUM"  != "afd5444ad9e322e566c97d9a88cf3f1ad7704615b2d3f28a633766fa1c628c3f" ]
+    then
+    echo "The EULA file has been tampered with!"
+    sleep 2
+    clear 
+    cd "$START_DIR"
+    exit
+    fi
+    if [ "$LICENSE_CHECKSUM" != "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad" ]
+    then
+    echo "The LICENSE file has been tampered with!"
+    sleep 2
+    clear
+    cd "$START_DIR"
+    exit
+    fi
+}
+
 START_DIR=$(pwd)
 license-check
+verification
 moniter-mode
+clear
 main-menu

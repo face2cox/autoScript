@@ -146,10 +146,11 @@ main-choice-4() {
     heading
     echo -e "\e[0;36m-----------------\e[0m \e[1;33mOther Options\e[0m \e[0;36m-----------------\e[0m"
     echo ""
-    echo "1) Run RouterSploit"
+    echo "1) File Manager"
     echo "2) Run Airgeddon"
-    echo "3) Edit Cap Files"
-    echo "4) Back"
+    echo "3) Run RouterSploit"
+    echo "4) Update autoScript"
+    echo "5) Back"
     echo ""
     read -n 1 -p "Select Option: " PATH4
     if [ -z $PATH4 ]
@@ -161,7 +162,7 @@ main-choice-4() {
 
     elif [ $PATH4 == 1 ]
     then
-    router-sploit
+    edit-files
 
     elif [ $PATH4 == 2 ]
     then
@@ -169,13 +170,13 @@ main-choice-4() {
 
     elif [ $PATH4 == 3 ]
     then
-    echo ""
-    echo ""
-    echo "Coming Soon..."
-    sleep 2
-    main-choice-4
+    router-sploit
 
     elif [ $PATH4 == 4 ]
+    then
+    autoScript update
+
+    elif [ $PATH4 == 5 ]
     then
     main-menu
 
