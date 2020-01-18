@@ -20,3 +20,6 @@ chmod +x uninstall.sh
 rm -r autoScript
 ./depnd
 cd "$CURRENT_DIR"
+clear
+echo "autoScript has been updated"
+echo ""
