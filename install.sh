@@ -49,8 +49,8 @@ apt install hashcat -y
 apt-get install aircrack-ng -y
 
 rm install.sh
-clear
 bash --login
+clear
 figlet Install Complete
 echo ""
 echo "The autoScript commands are:"
