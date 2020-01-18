@@ -317,7 +317,7 @@ edit-handshake-action() {
 }
 
 edit-pmkid() {
-    cd Handshake
+    cd PMKID
     ls -1 | grep -v "temp.txt" > temp.txt
     mapfile -t FILE2 <temp.txt
     rm temp.txt
@@ -593,7 +593,7 @@ edit-pmkid-action() {
 }
 
 edit-packets() {
-    cd Handshake
+    cd Captured-Packets
     ls -1 | grep -v "temp.txt" > temp.txt
     mapfile -t FILE3 <temp.txt
     rm temp.txt
