@@ -25,3 +25,4 @@ The autoScript commands are:
     autoScript uninstall
     autoScript help
 
+Most of the tools in autoScript are very simple, most of it is automated and ive tried to make it very user friendly. A small tip though; when you are captureing a handshake of a network (the most efficient way to crack a network with autoScript) you need a device to join the network. You can force this scenario by deauthing any device on that network (also an option in autoScript) for 3 seconds or so. Just open another terminal before starting the capture and select a target to deauth. Make sure they are on the same network you are trying to break into to. Education purposes only lol.
