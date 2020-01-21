@@ -7,6 +7,7 @@ cd autoScript
 mv depnd ..
 mv lib ..
 mv autoScript.sh ..
+chmod +x autoScript
 mv autoScript /bin
 mv update ..
 mv README.md ..
