@@ -26,11 +26,14 @@ capture-pmkid() {
     airmon-ng check kill
     hcxdumptool -i "$INTERFACE" -o "$FILE1".pcapng --enable_status=1 -c "$CHANNEL1"
     hcxpcaptool -E essidlist -I identitylist -U usernamelist -z "$FILE1".16800 "$FILE1".pcapng
+    clear
+    cd /etc/init.d/
+    sudo NetworkManager restart
+    cd "$PERM_DIR"
     rm "$FILE1".pcapng PMKID
     mv "$FILE1".16800 PMKID
     rm -R identitylist 2>/dev/null
     rm -R essidlist 2>/dev/null
-    sleep 1
     clear
     echo "Processing"
     ifconfig "$INTERFACE" down
