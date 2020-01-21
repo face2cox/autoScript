@@ -22,6 +22,8 @@ capture-pmkid() {
     echo "During Capture press "CTRL + C" to stop"
     read -n 1 -r -s -p "Press any button to begin capture..."
     clear
+    echo "Processing..."
+    airmon-ng check kill
     hcxdumptool -i "$INTERFACE" -o "$FILE1".pcapng --enable_status=1 -c "$CHANNEL1"
     hcxpcaptool -E essidlist -I identitylist -U usernamelist -z "$FILE1".16800 "$FILE1".pcapng
     rm "$FILE1".pcapng PMKID
