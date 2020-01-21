@@ -7,7 +7,7 @@ cd autoScript
 mv depnd ..
 mv lib ..
 mv autoScript.sh ..
-mv autoScript /bin/
+mv autoScript /bin
 mv update ..
 mv README.md ..
 mv EULA.txt ..
